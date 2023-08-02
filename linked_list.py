@@ -29,7 +29,7 @@ class LinkedList:
 
         return count
     
-    def look_up(self, index: int):
+    def look_up(self, index: int) -> None or Node:
         "Given an element index, returns corresponding node or None if index is invalid."
         current = self.head
         count = 0
@@ -43,7 +43,7 @@ class LinkedList:
         
         return current
 
-    def insert_node(self, node_to_add: Node, index: int):
+    def insert_node(self, node_to_add: Node, index: int)  -> None or Node:
         "Given an index and a node, returns node if successfully inserted or None if index is invalid."
         previous = None
         current = self.head
@@ -68,7 +68,7 @@ class LinkedList:
         return node_to_add
     
 
-    def remove_node(self, node_to_remove: Node):
+    def remove_node(self, node_to_remove: Node) -> None or Node:
         "Given a node, returns node if successfully removed or None if node is not in list."
         current = self.head
         previous = None
@@ -90,7 +90,7 @@ class LinkedList:
         current = None
         return node_to_remove
     
-    def remove_index(self, index: int):
+    def remove_index(self, index: int) -> None or Node:
         "Given an index, returns corresponding node if successfully remove or None if node is not in list."
         current = self.head
         previous = None

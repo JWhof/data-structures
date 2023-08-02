@@ -1,10 +1,10 @@
 from node import Node
 
 class Stack:
-    def __init__(self, head=None):
+    def __init__(self, head=None) -> None:
         self.head = head
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         "Returns a visual representation of the stack. NOTE: uses arrays, for demonstration purposes only."
         stack = []
         current = self.head
