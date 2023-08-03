@@ -32,7 +32,38 @@ class BinarySearchTree:
     
 
     def remove_node(self, node) -> None or TreeNode:
-        pass
+        # Cases: removing a leaf node, removing an internal node with one child, and removing an internal node with two children
+        if self.root == None or node == None: # Check that tree is not empty
+            return None
+        
+        if node.left == None and node.right == None: # Leaf node case
+            if node == self.root:
+                self.root = None
+            elif node.value < node.parent.value:
+                node.parent.left = None
+            else:
+                node.parent.right = None
+            return
+
+        if (node.left != None or node.right != None) and not (node.left != None and node.right != None): # Single child internal node case
+            if node.left != None:
+                node.left.parent = node.parent
+                node.parent.left = node.left
+                node.left = None
+                node.parent = None
+            else:
+                node.right.parent = node.parent
+                node.parent.right = node.right
+                node.left = None
+                node.parent = None
+        
+        #TODO: add internal node with two children case
+
+
+        
+        
+
+
 
     def find_value(self, current: TreeNode, value: int) -> None or TreeNode:
         "Finds a given value using recursion."
