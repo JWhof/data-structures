@@ -45,17 +45,21 @@ class BinarySearchTree:
                 node.parent.right = None
             return
 
-        if (node.left != None or node.right != None) and not (node.left != None and node.right != None): # Single child internal node case
-            if node.left != None:
-                node.left.parent = node.parent
-                node.parent.left = node.left
-                node.left = None
-                node.parent = None
+        if node.left == None or node.right == None: # Single child internal node case
+            child = node.left
+            
+            if child == None:
+                child = node.right
+
+            child.parent = node.parent
+            
+            if child.parent == None:
+                child = self.root
+            elif node.value < node.parent.value:
+                node.parent.left = child
             else:
-                node.right.parent = node.parent
-                node.parent.right = node.right
-                node.left = None
-                node.parent = None
+                node.parent.right = child
+            return
         
         #TODO: add internal node with two children case
 
